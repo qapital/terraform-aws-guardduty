@@ -15,9 +15,8 @@ Read the [AWS docs on Guarduty](https://docs.aws.amazon.com/guardduty/index.html
 
 | Branch | Build status                                                                                                                                                      |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-![master](http://jenkins.sagepaylabs.io/job/terraform-module-guardutyjob/master/badge/icon)
+![master]()
 
-![development](http://jenkins.sagepaylabs.io/job/terraform-module-guarduty/job/master/badge/icon)
 
 ## Assumptions
 
@@ -69,14 +68,12 @@ MIT Licensed. See [LICENSE](LICENSE.md) for full details.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| aws\_account\_id |  | string | n/a | yes |
-| aws\_profile |  | string | n/a | yes |
-| aws\_region |  | string | n/a | yes |
-| bucket\_prefix |  | string | `"security"` | no |
-| group\_name |  | string | `"guardduty-admin"` | no |
-| guardduty\_assets |  | string | `"guardduty"` | no |
+| aws\_account\_id | The ID of the AWS account to use | string | n/a | yes |
+| aws\_region | Which region are we running the module against | string | n/a | yes |
+| bucket\_prefix | The prefix to use for the s3 bucket | string | `"security"` | no |
+| group\_name | The name of guardDuty admins | string | `"guardduty-admin"` | no |
 | tags |  | map | `<map>` | no |
-| users |  | list | n/a | yes |
+| users | A list of string, where you can specify your members | list | n/a | yes |
 
 ## Outputs
 
