@@ -8,7 +8,7 @@ variable "aws_region" {
 
 variable "users" {
   type        = "list"
-  description = "A list of string, where you can specify your members"
+  description = "A list, where you can specify your members"
 }
 
 variable "bucket_prefix" {
