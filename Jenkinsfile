@@ -58,7 +58,7 @@ spec:
                     for f in $files
                     do
                     if [ -e "$f" ] && [[ $f == *.tf ]]; then
-                        AWS_REGION=eu-west-2 terraform validate --var 'aws_account_id=0000000' --var 'aws_region=eu-west-2' --var 'users=["sage"]' .
+                        AWS_REGION=eu-west-2 terraform validate --var 'aws_account_id=0000000' --var 'aws_region=eu-west-2' --var 'users=["vocalink"]' .
                         git add $f
                     fi
                     done

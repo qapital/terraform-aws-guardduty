@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "security" {
   tags = "${merge(map("Name","Security Bucket"), var.tags)}"
 }
 resource "aws_iam_policy" "enable_guardduty" {
-  name        = "enable-guardduty"
+  name        = "enable-guardduty-${var.aws_region}"
   path        = "/"
   description = "Allows setup and configuration of GuardDuty"
 
@@ -55,7 +55,7 @@ EOF
 }
 
 resource "aws_iam_policy" "use_security_bucket" {
-  name        = "access-security-bucket"
+  name        = "access-security-bucket-${var.aws_region}"
   path        = "/security/"
   description = "Allows full access to the contents of the security bucket"
 
@@ -82,7 +82,7 @@ EOF
 }
 
 resource "aws_iam_group" "guardduty" {
-  name = "${var.group_name}"
+  name = "${var.group_name}-${var.aws_region}"
   path = "/"
 }
 
@@ -107,7 +107,7 @@ resource "aws_iam_group_policy_attachment" "s3readonly" {
 }
 
 resource "aws_iam_group_membership" "guardduty" {
-  name  = "guardduty-admin-members"
+  name  = "guardduty-admin-members-${var.aws_region}"
   group = "${aws_iam_group.guardduty.name}"
   users = "${var.users}"
 }
